@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spell Checker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f0f0; /* Light grey */
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      border-radius: 10px;
+      background-color: #ffffff; /* White */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333333; /* Dark grey */
+    }
+    label {
+      font-weight: bold;
+      color: #555555; /* Grey */
+    }
+    .form-control {
+      border-radius: 5px;
+    }
+    .btn-primary {
+      border-radius: 5px;
+      background-color: #007bff; /* Blue */
+      border-color: #007bff; /* Blue */
+    }
+    .btn-primary:hover {
+      background-color: #0056b3; /* Dark blue */
+      border-color: #0056b3; /* Dark blue */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Spell Checker</h1>
+    <form action="/spell" method="post">
+      <div class="mb-3">
+        <label for="text" class="form-label">Type your text:</label>
+        <textarea class="form-control" name="text" id="text" rows="5"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Check Spelling</button>
+    </form>
+
+    {% if corrected_text %}
+    <div class="mt-4">
+      <h5>Corrected Text:</h5>
+      <p>{{ corrected_text }}</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
